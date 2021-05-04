@@ -2,24 +2,25 @@
 <!--<html lang="en">-->
 <!--<head>-->
 <!--    <meta charset="UTF-8">-->
-<!--    <h1>This is home, Feel free to do anything you want!</h1>-->
+<!--    <title>Title</title>-->
 <!--</head>-->
 <!--<body>-->
-<!--    <form action="{% url 'summarizer' %}">-->
-<!--        <input type="text" name="para" placeholder="Enter text..." required>-->
-<!--        <input type="submit" value="Generate summary">-->
-
-<!--    </form>-->
+<!--{% load static %}-->
+<!--    <h1>Summary:  </h1>-->
+<!--    <h3>{{ summary }}</h3>-->
 <!--</body>-->
 <!--</html>-->
+
 
 
 <!DOCTYPE html>
 <html>
   <head>
     <title>TextKit</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
     {% load static %}
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+      <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
@@ -54,6 +55,13 @@
       height: inherit;
       padding: 20px;
       }
+      .testboxtwo {
+        justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+
       form {
       width: 100%;
       padding: 20px;
@@ -64,7 +72,7 @@
       .banner {
       position: relative;
       height: 300px;
-      background-image: url("{% static 'banner1.jpg' %}");
+      background-image: url("{% static 'banner.jpg' %}");
       background-size: cover;
       display: flex;
       justify-content: center;
@@ -218,24 +226,20 @@
     </style>
   </head>
   <body>
-    <div class="testbox">
-      <form action="{% url 'summarizer' %}">
-        <div class="banner">
-            <p><h1>Text Summarizer</h1><br><br><br>
-            The ultimate tool to summarize your text..</p>>
+    <div class="testboxtwo">
+        <div class="alert alert-warning">
+            <h4><b>Original Text:</b></h4>
+            {{ para }}
         </div>
-<!--        <div class="colums">-->
-          <div class="item">
-            <textarea placeholder="Enter text..." type="text" name="para"
-                      rows="20"  required></textarea>
-          </div>
 
 
-<!--        </div>-->
-          <div class="btn-block">
-          <button type="submit">Submit</button>
+        <div class="alert alert-warning">
+            <h4><b>Summary:</b></h4>
+            {{ summary }}
         </div>
-      </form>
+
+        <a href="{% url 'home' %}" style="margin-left: 48%" class="btn btn-info">HOME</a>
     </div>
+
   </body>
 </html>

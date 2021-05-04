@@ -230,12 +230,14 @@
         <div class="alert alert-warning">
             <h4><b>Original Text:</b></h4>
             {{ para }}
+            <p><b>Number of words:</b> {{ words_in_para }}</p>
         </div>
 
 
         <div class="alert alert-warning">
             <h4><b>Summary:</b></h4>
             {{ summary }}
+            <p><b>Number of words:</b> {{ words_in_summary }}</p>
         </div>
 
         <a href="{% url 'home' %}" style="margin-left: 48%" class="btn btn-info">HOME</a>

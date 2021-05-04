@@ -9,7 +9,9 @@ def home(request):
 
 def summarizer(request):
     para = request.GET.get('para')
-
+    words_in_para = len(para.split())
     summary = summarize(para)
-
-    return render(request, 'summarizer/summarizer.html', {'summary':summary, 'para':para})
+    words_in_summary = len(summary.split())
+    return render(request, 'summarizer/summarizer.html', {'summary':summary, 'para':para,
+                                                          'words_in_para':words_in_para,
+                                                          'words_in_summary':words_in_summary})

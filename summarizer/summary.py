@@ -53,6 +53,8 @@ def summarize(para):
         sentence_vectors.append(v)
     # print("timeStamp 1")
     # similarity matrix
+    sen_summary = len(sentences)
+    # print(sen_summary)
     sim_mat = np.zeros([len(sentences), len(sentences)])
     from sklearn.metrics.pairwise import cosine_similarity
     for i in range(len(sentences)):
@@ -70,7 +72,7 @@ def summarize(para):
     ranked_sentences = sorted(((scores[i], s) for i, s in enumerate(sentences)), reverse=True)
     # print("timeStamp 3")
     # Specify number of sentences to form the summary
-    sn = 5
+    sn = int((7*sen_summary)/10)
 
     # Generate summary
     summary = ""
